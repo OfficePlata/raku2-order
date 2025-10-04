@@ -281,7 +281,6 @@
         </div>
     </section>
 
-<!-- ===== ご注文ステップ（自動調整版） ===== -->
 <section id="how-to" class="how-to">
   <div class="container">
     <h2 class="section-title">ご注文はたったの3ステップ</h2>
@@ -289,40 +288,37 @@
     <div class="how-to-grid">
       <!-- ステップ1 -->
       <div class="step-card">
-        <div class="step-number">1</div>
-        <h3>メニューを選ぶ</h3>
-        <p>写真付きのメニュー一覧から、食べたいお弁当を選びます。</p>
-        <div class="media">
-          <img
-            src="https://drive.google.com/thumbnail?id=1IOD0_iN_D2wbP9ksMH-oo6AXCyJsyehN&sz=w1200"
-            alt="メニュー選択画面"
-            loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <div class="card-header">
+          <div class="step-number">1</div>
+          <h3>メニューを選ぶ</h3>
+          <p>写真付きのメニュー一覧から、食べたいお弁当を選びます。</p>
+        </div>
+        <div class="media phone-frame">
+          <img src="https://drive.google.com/thumbnail?id=1IOD0_iN_D2wbP9ksMH-oo6AXCyJsyehN&sz=w1200" alt="メニュー選択画面" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         </div>
       </div>
 
       <!-- ステップ2 -->
       <div class="step-card">
-        <div class="step-number">2</div>
-        <h3>サイズ・数量を決める</h3>
-        <p>ご飯の量や個数を指定して、カートに追加します。</p>
-        <div class="media">
-          <img
-            src="https://drive.google.com/thumbnail?id=1KZBJL_1yLT_1uXfi_GtxIMhhPpUM52Ef&sz=w1200"
-            alt="オプション選択画面"
-            loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <div class="card-header">
+          <div class="step-number">2</div>
+          <h3>サイズ・数量を決める</h3>
+          <p>ご飯の量や個数を指定して、カートに追加します。</p>
+        </div>
+        <div class="media phone-frame">
+          <img src="https://drive.google.com/thumbnail?id=1KZBJL_1yLT_1uXfi_GtxIMhhPpUM52Ef&sz=w1200" alt="オプション選択画面" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         </div>
       </div>
 
       <!-- ステップ3 -->
       <div class="step-card">
-        <div class="step-number">3</div>
-        <h3>注文を確定！</h3>
-        <p>内容を確認して注文完了。LINEに確認メッセージが届きます。</p>
-        <div class="media">
-          <img
-            src="https://drive.google.com/thumbnail?id=1skjTQuMYXKGHa8S037FN_zpi6xr_dq6S&sz=w1200"
-            alt="注文完了画面"
-            loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <div class="card-header">
+          <div class="step-number">3</div>
+          <h3>注文を確定！</h3>
+          <p>内容を確認して注文完了。LINEに確認メッセージが届きます。</p>
+        </div>
+        <div class="media phone-frame">
+          <img src="https://drive.google.com/thumbnail?id=1skjTQuMYXKGHa8S037FN_zpi6xr_dq6S&sz=w1200" alt="注文完了画面" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         </div>
       </div>
     </div>
@@ -338,36 +334,54 @@
 }
 .how-to .section-title {
   text-align: center;
-  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
-  font-weight: 700;
-  margin-bottom: clamp(20px, 3vw, 40px);
-  color: #222;
+  font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: clamp(28px, 3vw, 48px);
+  color: #111;
 }
 
-/* グリッド（スマホ1列・PC3列） */
+/* ---------- Grid ---------- */
 .how-to-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: clamp(16px, 3vw, 28px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* ← 上辺を揃える */
+  gap: clamp(16px, 3vw, 32px);
+  flex-wrap: wrap;
 }
 
 /* ---------- Step Card ---------- */
 .step-card {
   background: #fff;
-  border-radius: 18px;
-  padding: clamp(16px, 2vw, 24px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border-radius: 20px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+  padding: 24px 20px;
+  flex: 1 1 300px;
+  max-width: 330px;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
 }
 .step-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* ---------- Header ---------- */
+.card-header {
+  flex: 0 0 auto;
+  margin-bottom: 16px;
+  min-height: 140px; /* ← テキスト領域を固定して高さを揃える */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 .step-number {
-  width: 42px;
-  height: 42px;
-  margin: 0 auto 12px;
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 10px;
   border-radius: 50%;
   background: #22c55e;
   color: #fff;
@@ -376,47 +390,45 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 .step-card h3 {
   font-size: 1.1rem;
-  margin-bottom: 8px;
-  color: #222;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
 .step-card p {
   font-size: 0.95rem;
   color: #444;
-  margin-bottom: 14px;
+  line-height: 1.5;
 }
 
 /* ---------- 画像フレーム ---------- */
-.media {
+.phone-frame {
   position: relative;
-  width: 100%;
+  background: #fff;
+  border-radius: 22px;
   overflow: hidden;
-  border-radius: 12px;
-  background: #f2f3f5;
+  border: 6px solid #e5e7eb;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
 }
-.media img {
+.phone-frame img {
   width: 100%;
-  height: auto;          /* ← 画像の縦横比に合わせて自動調整 */
+  height: auto;
   display: block;
-  border-radius: 12px;
-  object-fit: contain;   /* ← 画像全体を見せる（トリミングしない） */
-  background-color: #fff;
+  border-radius: 16px;
+  object-fit: contain;
 }
 
-/* ---------- ダークモード ---------- */
-@media (prefers-color-scheme: dark) {
-  .step-card { background: #1c1c1f; color: #eaeaea; }
-  .step-card h3, .step-card p { color: #ddd; }
-}
-
-/* ---------- 小画面対応 ---------- */
-@media (max-width: 480px) {
-  .step-number { width: 36px; height: 36px; font-size: 1.1rem; }
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .how-to-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card-header { min-height: auto; }
 }
 </style>
+
 
 
    <!-- ===== メニュー（レスポンシブ完全版） ===== -->
