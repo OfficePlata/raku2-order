@@ -281,31 +281,146 @@
         </div>
     </section>
 
-    <section id="how-to" class="how-to">
-        <div class="container">
-            <h2 class="section-title">ご注文はたったの3ステップ</h2>
-            <div class="how-to-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3>メニューを選ぶ</h3>
-                    <p>写真付きのメニュー一覧から、食べたいお弁当を選びます。</p>
-                    <img src="https://via.placeholder.com/300x200.png?text=メニュー選択画面" alt="メニュー選択画面">
-                </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3>サイズ・数量を決める</h3>
-                    <p>ご飯の量や個数を指定して、カートに追加します。</p>
-                     <img src="https://via.placeholder.com/300x200.png?text=オプション選択画面" alt="オプション選択画面">
-                </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3>注文を確定！</h3>
-                    <p>内容を確認して注文完了。LINEに確認メッセージが届きます。</p>
-                     <img src="https://via.placeholder.com/300x200.png?text=注文完了画面" alt="注文完了画面">
-                </div>
-            </div>
+    <!-- ===== ご注文ステップ（スマホ・PC対応 完全版） ===== -->
+<section id="how-to" class="how-to">
+  <div class="container">
+    <h2 class="section-title">ご注文はたったの3ステップ</h2>
+
+    <div class="how-to-grid">
+
+      <!-- ステップ1 -->
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>メニューを選ぶ</h3>
+        <p>写真付きのメニュー一覧から、食べたいお弁当を選びます。</p>
+        <div class="media">
+          <img
+            src="https://drive.google.com/uc?export=view&id=1IOD0_iN_D2wbP9ksMH-oo6AXCyJsyehN"
+            alt="メニュー選択画面"
+            loading="lazy" decoding="async">
         </div>
-    </section>
+      </div>
+
+      <!-- ステップ2 -->
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>サイズ・数量を決める</h3>
+        <p>ご飯の量や個数を指定して、カートに追加します。</p>
+        <div class="media">
+          <img
+            src="https://drive.google.com/uc?export=view&id=1KZBJL_1yLT_1uXfi_GtxIMhhPpUM52Ef"
+            alt="オプション選択画面"
+            loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <!-- ステップ3 -->
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>注文を確定！</h3>
+        <p>内容を確認して注文完了。LINEに確認メッセージが届きます。</p>
+        <div class="media">
+          <img
+            src="https://drive.google.com/uc?export=view&id=1skjTQuMYXKGHa8S037FN_zpi6xr_dq6S"
+            alt="注文完了画面"
+            loading="lazy" decoding="async">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* ---------- Layout ---------- */
+.how-to .container{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(20px, 4vw, 48px);
+}
+.how-to .section-title{
+  text-align: center;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: clamp(20px, 3vw, 40px);
+  color: #222;
+}
+
+/* グリッド（スマホ1列・PC3列） */
+.how-to-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(16px, 3vw, 28px);
+}
+
+/* ---------- Step Card ---------- */
+.step-card{
+  background: #fff;
+  border-radius: 18px;
+  padding: clamp(16px, 2vw, 24px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.step-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+.step-number{
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: #22c55e;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+.step-card h3{
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #222;
+}
+.step-card p{
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 14px;
+}
+
+/* ---------- 画像フレーム ---------- */
+.media{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;      /* フレーム比率を固定 */
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f2f3f5;
+}
+.media img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* フレームにピッタリ収める */
+  object-position: center;    /* 中央基準でトリミング */
+  display: block;
+}
+
+/* ---------- ダークモード ---------- */
+@media (prefers-color-scheme: dark){
+  .step-card{ background: #1c1c1f; color: #eaeaea; }
+  .step-card h3, .step-card p{ color: #ddd; }
+}
+
+/* ---------- 小画面対応 ---------- */
+@media (max-width: 480px){
+  .step-number{ width: 36px; height: 36px; font-size: 1.1rem; }
+}
+</style>
 
    <!-- ===== メニュー（レスポンシブ完全版） ===== -->
 <section id="menu" class="menu">
