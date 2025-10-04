@@ -307,48 +307,122 @@
         </div>
     </section>
 
-   <section id="menu" class="menu">
+   <!-- ===== メニュー（レスポンシブ完全版） ===== -->
+<section id="menu" class="menu">
   <div class="container">
     <h2 class="section-title">メニューの一例</h2>
+
     <div class="menu-gallery">
       <!-- チキン南蛮弁当 -->
-      <div class="menu-photo">
+      <figure class="menu-card">
         <img
-          src="https://lh3.googleusercontent.com/gg-dl/AJfQ9KSJQIzrk2v7X61FPdPHwEG4rCsK_1PMhTkalJi1gfbU4VJIC-0tZ7ODpGwM_yqD8ukJeDpida6qJMmdeZT5oF5o6mnygBZEMHlaSle7EyL2rU3IAIjGQRuxEqcx3j9s3CgTrb3g1YAA1A4ZkmPCZDqIOA7Ey57xuALAlMe7W38bepIgVg=s1024"
+          src="https://www.justonecookbook.com/wp-content/uploads/2012/09/Chicken-Nanban-Bento-2.jpg"
           alt="チキン南蛮弁当"
-          width="400"
-          height="300"
-          loading="lazy"
-          decoding="async">
-        <p>チキン南蛮弁当</p>
-      </div>
+          width="1200" height="900"
+          loading="lazy" decoding="async"
+          sizes="(min-width: 1200px) 400px, (min-width: 768px) 33vw, 90vw">
+        <figcaption>チキン南蛮弁当</figcaption>
+      </figure>
 
       <!-- 油淋鶏弁当 -->
-      <div class="menu-photo">
+      <figure class="menu-card">
         <img
-          src="https://lh3.googleusercontent.com/gg-dl/AJfQ9KRPpGsiEdnRO1xk03LKSO5-O5GKq6fQ5lKa1Ixq3OIw1rrxV3MIchgox71hbAYM5CQQMryG9Snk5APxokSjHls9NE1fbU8rYAUeExQ57ccdIOn6xqooObVOv2t0qp1VsROZEBmDuZCtsE1YaKpwtSjFBOkrsxmYxdvx5iFka2w2Cai8tA=s1024"
+          src="https://img.kurumesi-bentou.com/shops/1415/52520/main_md.jpg"
           alt="油淋鶏弁当"
-          width="400"
-          height="300"
-          loading="lazy"
-          decoding="async">
-        <p>油淋鶏弁当</p>
-      </div>
+          width="1200" height="900"
+          loading="lazy" decoding="async"
+          sizes="(min-width: 1200px) 400px, (min-width: 768px) 33vw, 90vw">
+        <figcaption>油淋鶏弁当</figcaption>
+      </figure>
 
       <!-- 豚の生姜焼き弁当 -->
-      <div class="menu-photo">
+      <figure class="menu-card">
         <img
-          src="https://lh3.googleusercontent.com/gg-dl/AJfQ9KRQ_IYHMI0M1_JnQg1bo2tpVgPlRDAVMhNFV_5aJwLTtwDaVj8gn5aGuSvxn8w43r6RX1_dGB8MtHA7BASwwoeILiG5NMTkC6f_fpKXf9yDEt2JTpJZVeq42JFASeONILIOXMNLzfNuCYfY0eudunwmp7OrMEVjGtvLpzr44zbZc8kK=s1024"
+          src="https://furusato-ichiba.com/wp-content/uploads/2021/08/12_syogayaki-bento_02.jpg"
           alt="豚の生姜焼き弁当"
-          width="400"
-          height="300"
-          loading="lazy"
-          decoding="async">
-        <p>豚の生姜焼き弁当</p>
-      </div>
+          width="1200" height="900"
+          loading="lazy" decoding="async"
+          sizes="(min-width: 1200px) 400px, (min-width: 768px) 33vw, 90vw">
+        <figcaption>豚の生姜焼き弁当</figcaption>
+      </figure>
     </div>
   </div>
 </section>
+
+<style>
+/* ---------- Layout ---------- */
+.menu .container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(16px, 3vw, 32px);
+}
+.menu .section-title{
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  text-align: center;
+  margin: 0 0 clamp(16px, 3vw, 28px);
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+/* グリッド（スマホ1列 → タブレット2列 → PC3列） */
+.menu-gallery{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(12px, 2.5vw, 24px);
+}
+
+/* ---------- Card ---------- */
+.menu-card{
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+  margin: 0; /* figureデフォルト余白を打消し */
+}
+
+/* 画像は比率を固定しつつトリミング */
+.menu-card img{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;   /* CLS軽減 */
+  object-fit: cover;
+  display: block;
+}
+
+/* キャプション */
+.menu-card figcaption{
+  padding: 12px 14px 16px;
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Hover（キーボード操作に配慮） */
+@media (hover: hover){
+  .menu-card:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0,0,0,.10);
+  }
+}
+.menu-card:focus-within{
+  outline: 2px solid #5aa2ff44;
+  outline-offset: 2px;
+  border-radius: 18px;
+}
+
+/* ---------- ダークモード軽い調整 ---------- */
+@media (prefers-color-scheme: dark){
+  .menu-card{ background: #1c1c1f; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+  .menu-card figcaption{ color: #eaeaea; }
+}
+
+/* ---------- 小さめ端末の微調整 ---------- */
+@media (max-width: 380px){
+  .menu-gallery{ grid-template-columns: 1fr; }
+}
+</style>
+
 
 
     
